@@ -15,10 +15,12 @@ public class Item {
     private String coverLargeUrl; //표지
     private String categoryName; //카테고리
     private String categoryId; //카테고리 세부
+    private float customerReviewRank; //고객 평점
+    private Long priceStandard; //가격
     private int rank; //책 랭킹
 
     public Book toEntity() {
-        return new Book(itemId, isbn, title, author, description, pubDate, coverSmallUrl, coverLargeUrl, categoryName, categoryId, rank);
+        return new Book(itemId, isbn, title, author, description, pubDate, coverSmallUrl, coverLargeUrl, categoryName, categoryId, customerReviewRank, priceStandard, rank);
     }
 
 }

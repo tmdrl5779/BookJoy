@@ -41,6 +41,12 @@ public class Book {
     @Column(name = "category_id")
     private String categoryId; //카테고리 세부
 
+    @Column(name = "customer_review_rank")
+    private float customerReviewRank; //고객 평점
+
+    @Column(name = "price_standard")
+    private Long priceStandard; //가격
+
     @Column(name="ranking")
     private int rank; //책 랭킹
 }
