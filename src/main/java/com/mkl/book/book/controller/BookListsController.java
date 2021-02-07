@@ -26,11 +26,19 @@ public class BookListsController {
         this.bookDBService = bookDBService;
     }
 
-
     @GetMapping("/list")
+    public String GoBookList(Model model){
+
+        List<Book> bookList = bookDBService.initFindBooksBypageRequest().getContent();
+
+        model.addAttribute("bookList", bookList);
+        return "booklist";
+    }
+
+    @GetMapping("/list/getBookList")
     @ResponseBody
-    public Page<Book> GoBookList(@PageableDefault(size = 3) Pageable pageable){
-        Page<Book> books = bookDBService.FindBooksBypageRequest(pageable);
+    public Page<Book> getBookList(@PageableDefault(size = 3) Pageable pageable){
+        Page<Book> books = bookDBService.findBooksBypageRequest(pageable);
         return books;
     }
 
